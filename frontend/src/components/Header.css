@@ -1,0 +1,682 @@
+:root {
+  --control-height: 44px;
+  --gutter-x: 32px;
+  --accent: #0f172a;
+  --accent-bg: #0f172a;
+  --accent-bg-hover: #1e293b;
+  --transition-base: .25s ease;
+  --shadow-sm: 0 2px 4px -2px rgba(15, 23, 42, .08), 0 4px 6px -2px rgba(15, 23, 42, .06);
+  --shadow-md: 0 4px 10px -3px rgba(15, 23, 42, .18), 0 10px 18px -6px rgba(15, 23, 42, .12);
+}
+
+/* Containers share same horizontal padding */
+.topBar .container,
+.categoryStrip .container {
+  padding: 0 var(--gutter-x);
+  max-width: 100%;
+  /* full bleed */
+}
+
+/* Reset */
+.topBar form {
+  margin: 0;
+}
+
+/* Standardize vertical sizing */
+.searchBar,
+.searchBar input,
+.searchBar button {
+  /* add missing dots */
+  height: var(--control-height);
+  display: inline-flex;
+  align-items: center;
+}
+
+.categoriesBtn,
+.Actions a,
+.cartIconBtn {
+  height: var(--control-height);
+  display: block;
+  align-items: center;
+}
+
+.searchBar {
+  padding: 0 .4rem 0 .6rem;
+  height: var(--control-height);
+}
+
+.searchBar input {
+  padding: 0 .6rem;
+}
+
+.searchBar button {
+  height: calc(var(--control-height) - 8px);
+  margin: 4px;
+  padding: 0 1.1rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Make search take remaining space, nav pushed right */
+.topBar__inner {
+  align-items: center;
+}
+
+.categoriesBtn {
+  flex-shrink: 0;
+}
+
+.brand {
+  flex-shrink: 0;
+}
+
+.searchBar {
+  flex: 1;
+  min-width: 220px;
+}
+
+.Actions {
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Prevent wrap misalignment on mid widths */
+@media (max-width:1180px) {
+  .Actions a {
+    padding: .5rem .55rem;
+  }
+}
+
+@media (max-width:900px) {
+  .Actions {
+    margin-left: 0;
+  }
+}
+
+.appHeader {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.topBar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 1px 0 rgba(15, 23, 42, .05);
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+}
+
+.topBar__inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: .5px;
+}
+
+/* CATEGORY BUTTON refined */
+.categoriesBtn {
+  height: var(--control-height);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  padding: rem;
+  border-radius: 8px;
+  font-size: .8rem;
+  font-weight: 500;
+  letter-spacing: .25px;
+  cursor: pointer;
+  line-height: 1;
+  color: #000;
+  transition: background .18s, border-color .18s, color .18s;
+}
+
+.categoriesBtn .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.categoriesBtn:hover {
+  background: var(--color-surface-alt);
+  border-color: var(--color-border-strong);
+}
+
+.categoriesBtn:active {
+  transform: translateY(1px);
+}
+
+/* SEARCH */
+.searchBar {
+  flex: 1;
+  display: flex;
+  position: relative;
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0 .6rem;
+  max-width: 560px;
+  height: var(--control-height);
+  box-sizing: border-box;
+}
+
+.searchBar input {
+  flex: 1;
+  border: 0;
+  background: transparent;
+  padding: 0 .75rem;
+  font-size: .9rem;
+  color: var(--color-text);
+  outline: none;
+}
+
+.searchBar button {
+  background: var(--accent-bg);
+  color: #fff;
+  border: 0;
+  padding: 0 1.15rem;
+  height: calc(var(--control-height) - 10px);
+  margin: 5px 0 5px .25rem;
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .25s;
+}
+
+.searchBar button:hover {
+  background: var(--accent-bg-hover);
+}
+
+.Actions {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  margin-left: auto;
+}
+
+.Actions a {
+  padding: 0 .9rem;
+  height: var(--control-height);
+  color: var(--color-text-muted);
+  border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-size: .8rem;
+  font-weight: 600;
+  transition: color .18s, background .18s, border-color .18s;
+}
+
+.Actions a:hover {
+  background: var(--color-surface-alt);
+  color: var(--color-text);
+}
+
+/* New segmented nav groups */
+.leftNavLinks,
+.loggedOutActions,
+.loggedInActions {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+
+.leftNavLinks a,
+.loggedOutActions a,
+.loggedInActions a {
+  padding: 0 .9rem;
+  height: var(--control-height);
+  color: var(--color-text-muted);
+  border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-size: .8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color .18s, background .18s, border-color .18s;
+}
+
+.leftNavLinks a:hover,
+.loggedOutActions a:hover,
+.loggedInActions a:hover {
+  background: var(--color-surface-alt);
+  color: var(--color-text);
+}
+
+/* Adjust spacing around groups */
+.leftNavLinks {
+  margin-right: .25rem;
+}
+
+.loggedOutActions,
+.loggedInActions {
+  margin-left: auto;
+}
+
+/* Mobile specific nav groups */
+.mobileLogOutNavLinks,
+.mobileLogInNavLinks {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  margin-top: .75rem;
+}
+
+.mobileLogOutNavLinks a,
+.mobileLogInNavLinks a,
+.mobileLogOutNavLinks .cartBtnLine,
+.mobileLogInNavLinks .cartBtnLine {
+  /* reuse existing mobileNavLinks style */
+  text-decoration: none;
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  padding: .6rem .75rem;
+  border-radius: 8px;
+  font-size: .85rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--transition-base), border-color var(--transition-base);
+}
+
+.mobileLogOutNavLinks a:hover,
+.mobileLogInNavLinks a:hover {
+  background: #e2e8f0;
+}
+
+.mobileLogOutNavLinks a.highlight {
+  background: #0f172a;
+  border-color: #0f172a;
+  color: #fff;
+}
+
+.mobileLogOutNavLinks a.highlight:hover {
+  background: #1e293b;
+}
+
+.ghostBtn {
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
+
+.ghostBtn.highlight {
+  background: #0f172a;
+  color: #ffffff;
+  border: 1px solid #0f172a;
+}
+
+.ghostBtn.highlight:hover {
+  background: #1e293b;
+  color: #ffffff;
+}
+
+/* Logout button variant for better base contrast */
+.logoutBtn {
+  background: var(--color-accent);
+  color: #fff !important;
+  border: 1px solid var(--color-accent);
+  font-weight: 600;
+  transition: background .25s, border-color .25s, color .25s;
+  height: var(--control-height);
+  padding: 0 .9rem;
+  border-radius: 999px;
+  font-size: .8rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoutBtn:hover {
+  background: var(--color-brand-hover);
+  border-color: var(--color-brand-hover);
+}
+
+.logoutBtn:focus-visible {
+  box-shadow: var(--focus-ring);
+  outline: none;
+}
+
+/* CART BUTTON white */
+.cartIconBtn {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  color: var(--accent);
+  padding: 0 .95rem;
+  border-radius: 8px;
+  font-size: .8rem;
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  height: var(--control-height);
+  transition: background .25s, border-color .25s, box-shadow .25s;
+}
+
+.cartIconBtn:hover {
+  background: var(--color-surface-alt);
+  border-color: var(--color-border-strong);
+}
+
+.cartIconBtn:active {
+  transform: translateY(1px);
+}
+
+.cartIconBtn .badge {
+  background: var(--accent-bg);
+  color: #fff;
+}
+
+.badge {
+  font-weight: 600;
+  font-size: .55rem;
+  padding: 2px 6px;
+  border-radius: 12px;
+}
+
+.categoryStrip {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  background: #f8fafc;
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 1px 0 rgba(15, 23, 42, .05);
+  /* subtle shadow */
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.categoryStrip .catScroll {
+  display: flex;
+  gap: .9rem;
+  align-items: stretch;
+}
+
+.catTag {
+  background: transparent;
+  border: 0;
+  font: inherit;
+  font-size: .8rem;
+  font-weight: 600;
+  padding: .45rem .85rem .4rem;
+  border-radius: 6px 6px 0 0;
+  color: #0f172a;
+  cursor: pointer;
+  position: relative;
+  letter-spacing: .25px;
+  transition: color .2s, background .2s;
+}
+
+.catTag::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #666b6d, #141414);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s cubic-bezier(.65, .05, .36, 1);
+  border-radius: 2px;
+}
+
+.catTag:hover::after,
+.catTag:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.catTag:focus-visible {
+  outline: 2px solid #8e9ea5;
+  outline-offset: 2px;
+}
+
+.catTag.active {
+  background: #e0f2fe;
+  color: #0f172a;
+}
+
+.catTag.active::after {
+  transform: scaleX(1);
+}
+
+.categoryStrip::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mobile navigation (hidden above 900px) */
+.mobileMenuBtn {
+  display: none;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  height: var(--control-height);
+  padding: 0 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--accent);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background .2s, border-color .2s;
+}
+
+.mobileMenuBtn:hover {
+  background: var(--color-surface-alt);
+  border-color: var(--color-border-strong);
+}
+
+.desktopOnly {
+  display: inline-flex;
+}
+
+.mobileOnly {
+  display: none !important;
+}
+
+@media (max-width:900px) {
+  .desktopOnly {
+    display: none !important;
+  }
+
+  .categoryStrip {
+    display: none;
+  }
+
+  /* Cart button appears immediately left of menu button. Give cart auto margin to push pair right */
+  .cartIconBtn.mobileOnly {
+    display: inline-flex !important;
+    margin-left: auto;
+    margin-right: .5rem;
+  }
+
+  .mobileMenuBtn {
+    display: inline-flex;
+    margin-left: 0;
+  }
+
+  .mobileOnly {
+    display: inline-flex !important;
+  }
+}
+
+@media (max-width:900px) {
+  .searchBar {
+    display: none;
+  }
+
+  .Actions {
+    display: none;
+  }
+
+  /* Keep menu button inline; cart button rules defined earlier */
+  .mobileMenuBtn {
+    display: inline-flex;
+  }
+}
+
+.mobileOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, .45);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+  z-index: 120;
+}
+
+.mobileOverlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobileDrawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  max-width: 85%;
+  background: #fff;
+  border-right: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  color: var(--color-text);
+  transform: translateX(-105%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 1rem 2rem;
+  transition: transform var(--transition-base);
+  overflow-y: auto;
+  z-index: 140;
+  height: 100vh;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.mobileDrawer.open {
+  transform: translateX(0);
+}
+
+.mobileDrawer__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: .25rem;
+}
+
+.brandMini {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-brand);
+}
+
+.closeBtn {
+  background: none;
+  border: 0;
+  font-size: 1.2rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.mobileSearch {
+  display: flex;
+  gap: .5rem;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: .4rem .55rem;
+}
+
+.mobileSearch input {
+  flex: 1;
+  border: 0;
+  background: transparent;
+  outline: none;
+  font-size: .85rem;
+}
+
+.mobileSearch button {
+  background: var(--color-brand);
+  color: #fff;
+  border: 0;
+  padding: .45rem .8rem;
+  border-radius: 6px;
+  font-size: .75rem;
+  cursor: pointer;
+}
+
+.mobileCats h4 {
+  margin: .25rem 0 .5rem;
+  font-size: .75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: var(--color-text-light);
+}
+
+.catList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.mobileNavLinks {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  margin-top: .5rem;
+}
+
+.mobileNavLinks a,
+.mobileNavLinks .cartBtnLine {
+  text-decoration: none;
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  padding: .6rem .75rem;
+  border-radius: 8px;
+  font-size: .85rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--transition-base), border-color var(--transition-base);
+}
+
+.mobileNavLinks a:hover {
+  background: #e2e8f0;
+}
+
+.mobileNavLinks a.highlight {
+  background: #0f172a;
+  border-color: #0f172a;
+  color: #fff;
+}
+
+.mobileNavLinks a.highlight:hover {
+  background: rgba(var(--color-brand-rgb), .18);
+}

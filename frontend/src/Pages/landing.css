@@ -1,0 +1,141 @@
+/* Landing page hero + sections */
+.landingHero {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 4.5rem 2rem 3rem;
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    align-items: center;
+}
+
+.heroCopy h1 {
+    margin: 0 0 1.25rem;
+    font-size: clamp(2.4rem, 4vw, 3.2rem);
+    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: .5px;
+    color: #0f172a;
+}
+
+.heroCopy p {
+    margin: 0 0 1.9rem;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: #475569;
+    max-width: 540px;
+}
+
+.heroActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.btnPrimary,
+.btnGhost {
+    height: 46px;
+    padding: 0 1.4rem;
+    font-size: .9rem;
+    font-weight: 600;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.btnPrimary {
+    background: #0f172a;
+    color: #fff;
+    border-color: #0f172a;
+}
+
+.btnPrimary:hover {
+    background: #1e293b;
+}
+
+.btnGhost {
+    background: #fff;
+    border-color: #e2e8f0;
+    color: #0f172a;
+}
+
+.btnGhost:hover {
+    background: #f1f5f9;
+}
+
+.heroShowcase {
+    position: relative;
+    aspect-ratio: 4/3;
+    border-radius: 28px;
+    overflow: hidden;
+    background: linear-gradient(145deg, #f1f5f9, #e2e8f0);
+    box-shadow: 0 30px 60px -25px rgba(15, 23, 42, .15), 0 18px 30px -15px rgba(15, 23, 42, .12);
+    display: grid;
+    place-items: center;
+}
+
+.heroShowcase:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, .7), rgba(255, 255, 255, 0));
+    mix-blend-mode: overlay;
+}
+
+.featureStrip {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem 4.5rem;
+    display: grid;
+    gap: 1.4rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.featureCard {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 1.25rem 1.15rem 1.35rem;
+    display: flex;
+    flex-direction: column;
+    gap: .55rem;
+    box-shadow: 0 4px 12px -4px rgba(15, 23, 42, .08);
+    transition: box-shadow .25s, transform .25s, border-color .25s;
+}
+
+.featureCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -10px rgba(15, 23, 42, .18);
+    border-color: #cbd5e1;
+}
+
+.featureCard h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.featureCard p {
+    margin: 0;
+    font-size: .75rem;
+    line-height: 1.35;
+    color: #64748b;
+}
+
+@media (max-width:640px) {
+    .landingHero {
+        padding: 3.2rem 1.25rem 2.5rem;
+    }
+
+    .featureStrip {
+        padding: 0 1.25rem 4rem;
+    }
+
+    .heroCopy h1 {
+        font-size: 2.2rem;
+    }
+}

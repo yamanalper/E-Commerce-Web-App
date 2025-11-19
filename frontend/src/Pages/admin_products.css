@@ -1,0 +1,153 @@
+/* Admin Products Page (uses global design tokens) */
+
+.adminPage {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 3rem 2rem 4.5rem;
+    color: var(--admin-accent);
+}
+
+.adminPage h1 {
+    margin: 0 0 2rem;
+    font-size: 2.15rem;
+    font-weight: 600;
+    position: relative;
+}
+
+.adminPage h1:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 120px;
+    height: 4px;
+    background: var(--admin-accent);
+    border-radius: 3px;
+}
+
+.adminTableWrap {
+    overflow-x: auto;
+    background: var(--admin-bg);
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    box-shadow: var(--admin-shadow);
+}
+
+.adminPage table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .78rem;
+}
+
+.adminPage thead {
+    background: var(--admin-bg-alt);
+}
+
+.adminPage th,
+.adminPage td {
+    padding: .85rem .95rem;
+    text-align: left;
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.adminPage th {
+    font-size: .65rem;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-weight: 600;
+    color: var(--admin-text-muted);
+}
+
+.adminPage tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.adminPage tbody tr {
+    transition: background .18s;
+}
+
+.adminPage tbody tr:hover {
+    background: var(--admin-bg-alt);
+}
+
+.actionButtons {
+    display: flex;
+    gap: .5rem;
+}
+
+.actionButtons button {
+    font-size: .7rem;
+    padding: .45rem .7rem;
+    background: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .25s, border-color .25s;
+}
+
+.actionButtons button:hover {
+    background: var(--color-brand);
+    border-color: var(--color-brand);
+}
+
+.actionButtons button:nth-child(2) {
+    background: var(--color-danger);
+    border-color: var(--color-danger);
+}
+
+.actionButtons button:nth-child(2):hover {
+    background: var(--color-danger-hover);
+    border-color: var(--color-danger-hover);
+}
+
+.emptyState,
+.loadingState,
+.errorState {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    font-weight: 600;
+    font-size: .85rem;
+}
+
+.emptyState {
+    color: var(--admin-text-muted);
+}
+
+.loadingState {
+    color: #2563eb;
+}
+
+.errorState {
+    color: var(--color-danger);
+}
+
+@media (max-width:900px) {
+    .adminPage {
+        padding: 2.5rem 1.25rem 4rem;
+    }
+
+    .adminPage h1 {
+        font-size: 1.85rem;
+    }
+
+    .adminPage th,
+    .adminPage td {
+        padding: .7rem .65rem;
+    }
+}
+
+@media (max-width:600px) {
+    .adminPage h1 {
+        font-size: 1.55rem;
+    }
+
+    .actionButtons {
+        flex-direction: column;
+    }
+
+    .actionButtons button {
+        width: 100%;
+    }
+}

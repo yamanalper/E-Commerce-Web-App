@@ -1,0 +1,103 @@
+ .ordersHeader {
+   max-width: 1280px;
+   margin: 0 auto;
+   padding: 3rem 2rem 4rem;
+   color: #0f172a;
+   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+ }
+
+ .ordersHeader h1 {
+   margin: 0 0 1.75rem;
+   font-size: 2.2rem;
+   font-weight: 600;
+   color: #0f172a;
+   position: relative;
+ }
+
+ .ordersHeader h1:after {
+   content: "";
+   position: absolute;
+   left: 0;
+   bottom: -10px;
+   width: 120px;
+   height: 4px;
+   background: #0f172a;
+   border-radius: 3px;
+ }
+
+ .ordersBody {
+   display: grid;
+   gap: 1.4rem;
+   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+ }
+
+ .orderItem {
+   background: #ffffff;
+   border: 1px solid #e2e8f0;
+   border-radius: 18px;
+   padding: 1.1rem 1.15rem 1.35rem;
+   box-shadow: 0 4px 12px -4px rgba(15, 23, 42, .08);
+   display: flex;
+   flex-direction: column;
+   gap: .55rem;
+   position: relative;
+   transition: box-shadow .25s, transform .25s, border-color .25s;
+ }
+
+ .orderItem:hover {
+   transform: translateY(-4px);
+   box-shadow: 0 12px 24px -8px rgba(15, 23, 42, .15);
+   border-color: #cbd5e1;
+ }
+
+ .orderItem h2 {
+   margin: 0;
+   font-size: 1.05rem;
+   font-weight: 600;
+   letter-spacing: .4px;
+   color: #0f172a;
+ }
+
+ .orderItem p {
+   margin: 0;
+   font-size: .8rem;
+   color: #475569;
+ }
+
+ .orderProducts h3 {
+   margin: .9rem 0 .4rem;
+   font-size: .75rem;
+   text-transform: uppercase;
+   letter-spacing: .12em;
+   color: #64748b;
+ }
+
+ .orderProducts ul {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   display: flex;
+   flex-direction: column;
+   gap: .35rem;
+   font-size: .75rem;
+ }
+
+ .orderProducts li {
+   background: #f1f5f9;
+   border: 1px solid #e2e8f0;
+   padding: .45rem .6rem;
+   border-radius: 8px;
+   color: #0f172a;
+ }
+
+ .loading,
+ .error {
+   text-align: center;
+   padding: 3rem 1rem;
+   font-weight: 600;
+   color: #0f172a;
+ }
+
+ .error {
+   color: #dc2626;
+ }
